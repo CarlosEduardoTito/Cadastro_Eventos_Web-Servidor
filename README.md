@@ -11,10 +11,9 @@ Este é um projeto desenvolvido em PHP que tem como objetivo gerenciar eventos e
 Para instalar e configurar o projeto localmente, siga os passos abaixo:
 
 1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/seu-usuario/Cadastro_Eventos_Web-Servidor.git
-
+  
+   git clone https://github.com/CarlosEduardoTito/Cadastro_Eventos_Web-Servidor.git
+  
 2. Com o xampp instalado na maquina inicialize o Apache
 
     https://www.apachefriends.org/pt_br/download.html
