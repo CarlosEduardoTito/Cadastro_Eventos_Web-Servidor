@@ -4,8 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require_once _DIR_ . '/../models/Reserva.php';
-require_once _DIR_ . '/../models/Evento.php';
+require_once __DIR__ . '/../models/Reserva.php';
+require_once __DIR__ . '/../models/Evento.php';
 
 class ReservaController {
     public function reservar($usuario_id, $evento_id, $quantidade) {
