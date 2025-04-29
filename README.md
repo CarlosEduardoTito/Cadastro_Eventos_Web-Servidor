@@ -24,22 +24,22 @@ Para instalar e configurar o projeto localmente, siga os passos abaixo:
     C:\xampp\htdocs
 
 4. acesse o projeto em http://localhost/trabalho1/public/index.php?action=menu
+  
+## Funcionalidades Faltantes  
+  
+Sistema de notificações para eventos.  
+Funcionalidade para editar e excluir eventos.  
+Melhorias na interface de usuário para dispositivos móveis.  
+  
+## Funcionalidades do Projeto  
+  
+Cadastro de usuários com autenticação (registro, login, logout).  
+CRUD para gerenciamento de eventos.  
+Sistema de reservas de ingressos com controle de disponibilidade.  
+Listagem de eventos e reservas.  
 
-## Funcionalidades Faltantes
-
-Sistema de notificações para eventos.
-Funcionalidade para editar e excluir eventos.
-Melhorias na interface de usuário para dispositivos móveis.
-
-## Funcionalidades do Projeto
-
-Cadastro de usuários com autenticação (registro, login, logout).
-CRUD para gerenciamento de eventos.
-Sistema de reservas de ingressos com controle de disponibilidade.
-Listagem de eventos e reservas.
-
-## Tecnologias Utilizadas
-
-PHP - Linguagem principal.
-HTML/CSS - Para o desenvolvimento do frontend.
-JavaScript - Para interatividade no frontend.
+## Tecnologias Utilizadas  
+  
+PHP - Linguagem principal.  
+HTML/CSS - Para o desenvolvimento do frontend.  
+JavaScript - Para interatividade no frontend.  
