@@ -1,3 +1,14 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastrar</title>
+</head>
+<body>
 <h2>Cadastrar</h2>
 <?php if (!empty($_SESSION['erro'])): ?>
     <p style="color:red;"><?= $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
@@ -9,3 +20,5 @@
     <button type="submit">Cadastrar</button>
 </form>
 <a href="/trabalho1/public/index.php?action=login">Voltar para Login</a>
+</body>
+</html>
