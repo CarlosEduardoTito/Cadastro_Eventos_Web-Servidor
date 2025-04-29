@@ -17,16 +17,16 @@ $action = $_GET['action'] ?? null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Aplicação</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Bem-vindo à Minha Aplicação</h1>
+<header>
+        <h1>Bem-vindo</h1>
         <nav>
-            <ul>
+            <ul class="menu-left">
                 <li><a href="index.php?action=menu">Menu</a></li>
-                <li><a href="index.php?action=listar_eventos">Eventos</a></li>
-                <li><a href="index.php?action=minhas_reservas">Minhas Reservas</a></li>
+            </ul>
+            <ul class="menu-right">
                 <li><a href="index.php?action=logout">Sair</a></li>
             </ul>
         </nav>
@@ -95,8 +95,8 @@ $action = $_GET['action'] ?? null;
         }
         ?>
     </main>
-    <footer>
-        <p>&copy; 2025 Minha Aplicação. Todos os direitos reservados.</p>
+</body>
+</html>
     </footer>
 </body>
 </html>
