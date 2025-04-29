@@ -11,8 +11,4 @@
         <input type="hidden" name="action" value="criar_evento">
         <button type="submit">Criar Evento</button>
     </form>
-    <form action="/trabalho1/public/index.php" method="GET" style="display:inline;">
-        <input type="hidden" name="action" value="logout">
-        <button type="submit">Sair</button>
-    </form>
 </nav>
