@@ -1,5 +1,5 @@
 html, body {
-    height: 100%; /* Garante que o HTML e o body ocupem toda a altura da janela */
+    height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -10,25 +10,43 @@ html, body {
 }
 
 header {
-    background: linear-gradient(90deg, #87CEFA, #0056b3);
+    background: linear-gradient(90deg, #87CEFA, #5CA9D6);
     color: white;
-    padding: 20px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+nav .menu-left {
+    margin-right: auto;
+}
+
+nav .menu-right {
+    margin-left: auto;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 15px 0 0;
+    margin: 0;
     display: flex;
-    justify-content: center;
     gap: 20px;
 }
 
@@ -50,7 +68,7 @@ nav ul li a:hover {
 }
 
 main {
-    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+    flex: 1;
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -68,6 +86,84 @@ main p {
     color: #555;
 }
 
+.form-title {
+    font-size: 2em;
+    color: #87CEFA;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="date"],
+.form-container input[type="time"],
+.form-container input[type="number"],
+.form-container textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #fff;
+}
+
+.form-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #87CEFA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #5CA9D6;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-link a {
+    color: #87CEFA;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 button {
     background-color: #87CEFA;
     color: white;
@@ -80,25 +176,38 @@ button {
 }
 
 button:hover {
+    background-color: #5CA9D6;
+}
+
+.menu-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.menu-button {
+    width: 200px;
+    padding: 10px;
     background-color: #87CEFA;
-}
-
-footer {
-    background-color: #333;
     color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
     text-align: center;
-    padding: 15px 0;
-    font-size: 0.9em;
-    margin-top: auto; /* Garante que o footer fique no final */
 }
 
-footer p {
-    margin: 0;
+.menu-button:hover {
+    background-color: #5CA9D6;
 }
 
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 
     nav ul {
