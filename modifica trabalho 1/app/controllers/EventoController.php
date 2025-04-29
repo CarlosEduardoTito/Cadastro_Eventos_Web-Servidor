@@ -1,0 +1,47 @@
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+class EventoController {
+    public function criar($dados) {
+        if (empty($dados['nome']) || empty($dados['ingressos'])) {
+            $_SESSION['erro'] = "Nome e ingressos são obrigatórios.";
+            header("Location: ../app/views/eventos/criar.php");
+            exit;
+        }
+
+        $evento = [
+            'id' => uniqid(),
+            'nome' => $dados['nome'],
+            'descricao' => $dados['descricao'],
+            'data' => $dados['data'],
+            'hora' => $dados['hora'],
+            'localizacao' => $dados['localizacao'],
+            'ingressos_disponiveis' => $dados['ingressos']
+        ];
+
+        $_SESSION['eventos'][] = $evento;
+        $_SESSION['mensagem'] = "Evento criado com sucesso!";
+        header("Location: ../app/views/eventos/listar.php");
+    }
+
+    public function listar() {
+        return $_SESSION['eventos'] ?? [];
+    }
+
+    public function excluir($id) {
+        if (isset($_SESSION['eventos'])) {
+            foreach ($_SESSION['eventos'] as $key => $evento) {
+                if ($evento['id'] === $id) {
+                    unset($_SESSION['eventos'][$key]);
+                    $_SESSION['mensagem'] = "Evento excluído com sucesso!";
+                    return;
+                }
+            }
+        }
+        $_SESSION['erro'] = "Evento não encontrado.";
+    }
+}
+?>
