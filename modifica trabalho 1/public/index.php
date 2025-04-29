@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             include '../app/views/reservas/MinhasReservas.php';
             break;
         case 'menu':
-            include '../app/views/partials/Menu.php';
+            include '../app/views/partial/Menu.php';
             break;
         case 'logout':
             $auth->logout();
