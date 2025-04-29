@@ -16,7 +16,7 @@ class EventoController {
             'id' => uniqid(),
             'nome' => $dados['nome'],
             'descricao' => $dados['descricao'],
-            'data' => $dados['data'],
+            'data' => date('Y-m-d', strtotime(str_replace('/', '-', $dados['data']))),
             'hora' => $dados['hora'],
             'localizacao' => $dados['localizacao'],
             'ingressos_disponiveis' => $dados['ingressos']
