@@ -6,12 +6,6 @@ Projeto desenvolvido para a disciplina de Web Servidor do curso de Análise e De
 
 Este é um projeto desenvolvido em PHP que tem como objetivo gerenciar eventos e reservas de ingressos. O sistema permite que os usuários se cadastrem, façam login, criem eventos, reservem ingressos e visualizem suas reservas. O foco do projeto é oferecer uma interface simples e funcional para o gerenciamento de eventos.
 
-## Atividades da Equipe
-
-- **Giovanne Ribeiro Mika**: Implementou a lógica de backend para o cadastro e gerenciamento de eventos. Desenvolveu a interface de criação de eventos e validações de dados.
-- **Thiago Pereira**: Trabalhou no sistema de autenticação, incluindo cadastro, login e logout de usuários. Implementou o roteamento dinâmico e validações de permissões.
-- **Matheus Andreiczuk**: Desenvolveu a funcionalidade de reservas de ingressos, incluindo a lógica de backend e a interface de reservas. Implementou a listagem de reservas e validações de disponibilidade.
-
 ## Instalação
 
 Para instalar e configurar o projeto localmente, siga os passos abaixo:
@@ -20,3 +14,29 @@ Para instalar e configurar o projeto localmente, siga os passos abaixo:
 
    ```bash
    git clone https://github.com/seu-usuario/Cadastro_Eventos_Web-Servidor.git
+
+2. Com o xampp instalado na maquina inicialize o Apache
+
+    https://www.apachefriends.org/pt_br/download.html
+
+3. adicione a pasta trabalho1 na pasta htdocs
+
+    C:\xampp\htdocs
+
+4. acesse o projeto em http://localhost/trabalho1/public/index.php?action=menu
+
+Funcionalidades Faltantes
+    Sistema de notificações para eventos.
+    Funcionalidade para editar e excluir eventos.
+    Melhorias na interface de usuário para dispositivos móveis.
+
+Funcionalidades do Projeto
+    Cadastro de usuários com autenticação (registro, login, logout).
+    CRUD para gerenciamento de eventos.
+    Sistema de reservas de ingressos com controle de disponibilidade.
+    Listagem de eventos e reservas.
+
+Tecnologias Utilizadas
+    PHP - Linguagem principal.
+    HTML/CSS - Para o desenvolvimento do frontend.
+    JavaScript - Para interatividade no frontend.
