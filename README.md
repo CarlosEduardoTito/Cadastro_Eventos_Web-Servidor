@@ -25,20 +25,20 @@ Para instalar e configurar o projeto localmente, siga os passos abaixo:
 
 4. acesse o projeto em http://localhost/trabalho1/public/index.php?action=menu
 
-##Funcionalidades Faltantes
+## Funcionalidades Faltantes
 
 Sistema de notificações para eventos.
 Funcionalidade para editar e excluir eventos.
 Melhorias na interface de usuário para dispositivos móveis.
 
-##Funcionalidades do Projeto
+## Funcionalidades do Projeto
 
 Cadastro de usuários com autenticação (registro, login, logout).
 CRUD para gerenciamento de eventos.
 Sistema de reservas de ingressos com controle de disponibilidade.
 Listagem de eventos e reservas.
 
-##Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 PHP - Linguagem principal.
 HTML/CSS - Para o desenvolvimento do frontend.
