@@ -8,10 +8,10 @@ class EventoController {
     public function criar($dados) {
         if (empty($dados['nome']) || empty($dados['ingressos'])) {
             $_SESSION['erro'] = "Nome e ingressos são obrigatórios.";
-            header("Location: ../app/views/eventos/criar.php");
+            header("Location: /trabalho1/public/index.php?action=criar_evento");
             exit;
         }
-
+    
         $evento = [
             'id' => uniqid(),
             'nome' => $dados['nome'],
@@ -21,10 +21,11 @@ class EventoController {
             'localizacao' => $dados['localizacao'],
             'ingressos_disponiveis' => $dados['ingressos']
         ];
-
+    
         $_SESSION['eventos'][] = $evento;
         $_SESSION['mensagem'] = "Evento criado com sucesso!";
-        header("Location: ../app/views/eventos/listar.php");
+        header("Location: /trabalho1/public/index.php?action=listar_eventos");
+        exit;
     }
 
     public function listar() {
