@@ -52,6 +52,9 @@ class ReservaController {
     }
 
     public function minhasReservas($usuario_id) {
+        if (!isset($_SESSION['reservas'])) {
+            $_SESSION['reservas'] = []; 
+        }
         $minhasReservas = array_filter($_SESSION['reservas'], function($reserva) use ($usuario_id) {
             return $reserva['usuario_id'] === $usuario_id; 
         });
