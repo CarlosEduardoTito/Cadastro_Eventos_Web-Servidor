@@ -4,16 +4,19 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+require_once __DIR__ . '/../models/Usuario.php';
+
 class AuthController {
     public function login($email, $senha) {
-        $usuarios = $_SESSION['usuarios'] ?? [];
-        if (isset($usuarios[$email]) && $usuarios[$email]['senha'] === $senha) {
+        $usuario = Usuario::encontrarPorEmail($email);
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
             $_SESSION['usuario'] = [
-                'id' => $usuarios[$email]['id'],
-                'email' => $email,
-                'nome' => $usuarios[$email]['nome']
+                'id' => $usuario['id'],
+                'email' => $usuario['email'],
+                'nome' => $usuario['nome']
             ];
-            header("Location: /trabalho1/public/index.php?action=menu");
+            header("Location: /trabalho1/menu");
+            exit;
         } else {
             $this->setErrorAndRedirect("Email ou senha inválidos.", "login");
         }
@@ -21,31 +24,22 @@ class AuthController {
 
     public function logout() {
         session_destroy();
-        header("Location: /trabalho1/public/index.php?action=login");
+        header("Location: /trabalho1/login");
         exit;
     }
 
     public function cadastrar($nome, $email, $senha) {
-        $usuarios = $_SESSION['usuarios'] ?? [];
-        if (isset($usuarios[$email])) {
-            $this->setErrorAndRedirect("Usuário já cadastrado com este email.", "cadastrar");
+        if (!Usuario::criar($nome, $email, $senha)) {
+            $this->setErrorAndRedirect($_SESSION['erro'] ?? "Erro ao cadastrar.", "cadastrar");
         }
-
-        $usuarios[$email] = [
-            'id' => uniqid(),
-            'nome' => $nome,
-            'senha' => $senha
-        ];
-        $_SESSION['usuarios'] = $usuarios;
-
         $_SESSION['mensagem'] = "Usuário cadastrado com sucesso!";
-        header("Location: /trabalho1/public/index.php?action=login");
+        header("Location: /trabalho1/login");
         exit;
     }
 
-    private function setErrorAndRedirect($message, $action) {
+    private function setErrorAndRedirect($message, $url) {
         $_SESSION['erro'] = $message;
-        header("Location: /trabalho1/public/index.php?action=$action");
+        header("Location: /trabalho1/$url");
         exit;
     }
 }
