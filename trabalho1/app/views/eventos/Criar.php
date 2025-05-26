@@ -2,7 +2,7 @@
 <?php if (!empty($_SESSION['erro'])): ?>
     <p class="error-message"><?= $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
 <?php endif; ?>
-<form action="/trabalho1/public/index.php?action=criar_evento" method="POST" class="form-container">
+<form action="/trabalho1/criar_evento" method="POST" class="form-container">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" required class="form-input"><br>
     <label for="descricao">Descrição:</label>
@@ -18,5 +18,5 @@
     <button type="submit" class="form-button">Cadastrar</button>
 </form>
 <p class="form-link">
-    <a href="/trabalho1/public/index.php?action=menu">Voltar para o Menu</a>
+    <a href="/trabalho1/menu">Voltar para o Menu</a>
 </p>
