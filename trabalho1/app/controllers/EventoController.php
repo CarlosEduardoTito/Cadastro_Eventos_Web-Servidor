@@ -4,51 +4,51 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+require_once __DIR__ . '/../models/Evento.php';
+
 class EventoController {
     public function criar($dados) {
         if (empty($dados['nome']) || empty($dados['ingressos'])) {
             $_SESSION['erro'] = "Nome e ingressos são obrigatórios.";
-            header("Location: /trabalho1/public/index.php?action=criar_evento");
+            header("Location: /trabalho1/criar_evento");
             exit;
         }
-
-        if ($dados['ingressos'] < 0) {
-            $_SESSION['erro'] = "A quantidade de ingressos não pode ser negativa.";
-            header("Location: /trabalho1/public/index.php?action=criar_evento");
-            exit;
-        }
-
-        $evento = [
-            'id' => uniqid(),
-            'nome' => $dados['nome'],
-            'descricao' => $dados['descricao'],
-            'data' => date('Y-m-d', strtotime(str_replace('/', '-', $dados['data']))),
-            'hora' => $dados['hora'],
-            'localizacao' => $dados['localizacao'],
-            'ingressos_disponiveis' => $dados['ingressos']
-        ];
-
-        $_SESSION['eventos'][] = $evento;
+        $dados['usuario_id'] = $_SESSION['usuario']['id'];
+        Evento::criar($dados);
         $_SESSION['mensagem'] = "Evento criado com sucesso!";
-        header("Location: /trabalho1/public/index.php?action=listar_eventos");
+        header("Location: /trabalho1/eventos");
         exit;
     }
 
     public function listar() {
-        return $_SESSION['eventos'] ?? [];
+        return Evento::listarTodos();
+    }
+
+    public function meusEventos() {
+        return Evento::listarPorUsuario($_SESSION['usuario']['id']);
+    }
+
+    public function editar($id, $dados) {
+        $dados['usuario_id'] = $_SESSION['usuario']['id'];
+        if (Evento::atualizar($id, $dados)) {
+            $_SESSION['mensagem'] = "Evento atualizado!";
+        } else {
+            $_SESSION['erro'] = "Não autorizado ou evento não encontrado.";
+        }
+        header("Location: /trabalho1/meus_eventos");
+        exit;
     }
 
     public function excluir($id) {
-        if (isset($_SESSION['eventos'])) {
-            foreach ($_SESSION['eventos'] as $key => $evento) {
-                if ($evento['id'] === $id) {
-                    unset($_SESSION['eventos'][$key]);
-                    $_SESSION['mensagem'] = "Evento excluído com sucesso!";
-                    return;
-                }
-            }
+        $evento = Evento::buscarPorId($id);
+        if ($evento && $evento['usuario_id'] == $_SESSION['usuario']['id']) {
+            Evento::excluir($id);
+            $_SESSION['mensagem'] = "Evento excluído!";
+        } else {
+            $_SESSION['erro'] = "Você não pode excluir este evento.";
         }
-        $_SESSION['erro'] = "Evento não encontrado.";
+        header("Location: /trabalho1/meus_eventos");
+        exit;
     }
 }
 ?>
