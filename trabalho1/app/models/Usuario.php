@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/../config/database.php';
+
 class Usuario {
     private $nome;
     private $email;
@@ -12,34 +14,24 @@ class Usuario {
     }
 
     public static function criar($nome, $email, $senha) {
-        if (!isset($_SESSION['usuarios'])) {
-            $_SESSION['usuarios'] = [];
+        $pdo = Database::conectar();
+
+        $stmt = $pdo->prepare("SELECT id FROM usuarios WHERE email = ?");
+        $stmt->execute([$email]);
+        if ($stmt->fetch()) {
+            $_SESSION['erro'] = "Usuário já cadastrado com este email.";
+            return false;
         }
 
-        foreach ($_SESSION['usuarios'] as $usuario) {
-            if ($usuario['email'] === $email) {
-                $_SESSION['erro'] = "Usuário já cadastrado com este email.";
-                return false;
-            }
-        }
-
-        $novoUsuario = new self($nome, $email, $senha);
-        $_SESSION['usuarios'][] = [
-            'nome' => $novoUsuario->nome,
-            'email' => $novoUsuario->email,
-            'senha' => $novoUsuario->senha
-        ];
-        return true;
+        $hash = password_hash($senha, PASSWORD_DEFAULT);
+        $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
+        return $stmt->execute([$nome, $email, $hash]);
     }
 
     public static function encontrarPorEmail($email) {
-        if (isset($_SESSION['usuarios'])) {
-            foreach ($_SESSION['usuarios'] as $usuario) {
-                if ($usuario['email'] === $email) {
-                    return $usuario;
-                }
-            }
-        }
-        return null;
+        $pdo = Database::conectar();
+        $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetch();
     }
 }
