@@ -14,7 +14,7 @@ Para instalar e configurar o projeto localmente, siga os passos abaixo:
 
     https://github.com/CarlosEduardoTito/Cadastro_Eventos_Web-Servidor.git
 
-2. Com o XAMPP instalado na máquina, inicie o Apache:
+2. Com o XAMPP instalado na máquina, inicie o Apache e o MySQL:
 
    [Download XAMPP](https://www.apachefriends.org/pt_br/download.html)
 
