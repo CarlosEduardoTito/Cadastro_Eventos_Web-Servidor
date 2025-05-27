@@ -2,7 +2,7 @@
 <?php if (!empty($_SESSION['erro'])): ?>
     <p class="error-message"><?= $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
 <?php endif; ?>
-<form action="/trabalho2/cadastrar" method="POST" class="form-container">
+<form action="/trabalho2/public/cadastrar" method="POST" class="form-container">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" required class="form-input"><br>
     <label for="email">Email:</label>
@@ -12,5 +12,5 @@
     <button type="submit" class="form-button">Cadastrar</button>
 </form>
 <p class="form-link">
-    <a href="/trabalho2/login">Voltar para Login</a>
+    <a href="/trabalho2/public/login">Voltar para Login</a>
 </p>

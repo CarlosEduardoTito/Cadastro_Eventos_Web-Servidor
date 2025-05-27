@@ -76,10 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
         default:
             if (!isset($_SESSION['usuario'])) {
-                header("Location: /trabalho2/login");
+                header("Location: /trabalho2/public/login");
                 exit;
             } else {
-                header("Location: /trabalho2/menu");
+                header("Location: /trabalho2/public/menu");
                 exit;
             }
     }
@@ -101,10 +101,10 @@ $content = ob_get_clean();
         <h1>Bem-vindo</h1>
         <nav>
             <ul class="menu-left">
-                <li><a href="/trabalho2/menu">Menu</a></li>
+                <li><a href="/trabalho2/public/menu">Menu</a></li>
             </ul>
             <ul class="menu-right">
-                <li><a href="/trabalho2/logout">Sair</a></li>
+                <li><a href="/trabalho2/public/logout">Sair</a></li>
             </ul>
         </nav>
     </header>
