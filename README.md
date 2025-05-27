@@ -12,9 +12,7 @@ Para instalar e configurar o projeto localmente, siga os passos abaixo:
 
 1. Clone o repositório:
 
-   ```bash
     https://github.com/CarlosEduardoTito/Cadastro_Eventos_Web-Servidor.git
-   ```
 
 2. Com o XAMPP instalado na máquina, inicie o Apache:
 
