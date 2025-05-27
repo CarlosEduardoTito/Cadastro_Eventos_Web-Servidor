@@ -22,17 +22,17 @@ $eventos = $controller->MeusEventos();
             Hora: <?= date('H:i', strtotime($evento['hora'])) ?><br>
             Local: <?= htmlspecialchars($evento['localizacao']) ?><br>
             Ingressos disponíveis: <?= $evento['ingressos_disponiveis'] ?><br>
-            <form action="/trabalho1/editar_evento" method="GET" style="display:inline;">
+            <form action="/trabalho2/editar_evento" method="GET" style="display:inline;">
                 <input type="hidden" name="id" value="<?= $evento['id'] ?>">
                 <button type="submit">Editar</button>
             </form>
-            <form action="/trabalho1/excluir_evento" method="POST" style="display:inline;">
+            <form action="/trabalho2/excluir_evento" method="POST" style="display:inline;">
                 <input type="hidden" name="id" value="<?= $evento['id'] ?>">
                 <button type="submit" onclick="return confirm('Tem certeza?')">Excluir</button>
             </form>
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
-<form action="/trabalho1/menu" method="GET" style="margin-top: 20px;">
+<form action="/trabalho2/menu" method="GET" style="margin-top: 20px;">
     <button type="submit">Voltar para o Menu</button>
 </form>

@@ -5,12 +5,12 @@ $id = $_GET['id'] ?? null;
 $evento = $id ? Evento::buscarPorId($id) : null;
 if (!$evento || $evento['usuario_id'] != $_SESSION['usuario']['id']) {
     $_SESSION['erro'] = "Evento não encontrado ou não autorizado.";
-    header("Location: /trabalho1/meus_eventos");
+    header("Location: /trabalho2/meus_eventos");
     exit;
 }
 ?>
 <h2 class="form-title">Editar Evento</h2>
-<form action="/trabalho1/editar_evento" method="POST" class="form-container">
+<form action="/trabalho2/editar_evento" method="POST" class="form-container">
     <input type="hidden" name="id" value="<?= $evento['id'] ?>">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($evento['nome']) ?>" required class="form-input"><br>
@@ -27,5 +27,5 @@ if (!$evento || $evento['usuario_id'] != $_SESSION['usuario']['id']) {
     <button type="submit" class="form-button">Salvar</button>
 </form>
 <p class="form-link">
-    <a href="/trabalho1/meus_eventos">Voltar</a>
+    <a href="/trabalho2/meus_eventos">Voltar</a>
 </p>

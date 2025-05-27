@@ -15,7 +15,7 @@ class AuthController {
                 'email' => $usuario['email'],
                 'nome' => $usuario['nome']
             ];
-            header("Location: /trabalho1/menu");
+            header("Location: /trabalho2/menu");
             exit;
         } else {
             $this->setErrorAndRedirect("Email ou senha inválidos.", "login");
@@ -24,7 +24,7 @@ class AuthController {
 
     public function logout() {
         session_destroy();
-        header("Location: /trabalho1/login");
+        header("Location: /trabalho2/login");
         exit;
     }
 
@@ -33,13 +33,13 @@ class AuthController {
             $this->setErrorAndRedirect($_SESSION['erro'] ?? "Erro ao cadastrar.", "cadastrar");
         }
         $_SESSION['mensagem'] = "Usuário cadastrado com sucesso!";
-        header("Location: /trabalho1/login");
+        header("Location: /trabalho2/login");
         exit;
     }
 
     private function setErrorAndRedirect($message, $url) {
         $_SESSION['erro'] = $message;
-        header("Location: /trabalho1/$url");
+        header("Location: /trabalho2/$url");
         exit;
     }
 }

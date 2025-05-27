@@ -78,10 +78,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
         default:
             if (!isset($_SESSION['usuario'])) {
-                header("Location: /trabalho1/login");
+                header("Location: /trabalho2/login");
                 exit;
             } else {
-                header("Location: /trabalho1/menu");
+                header("Location: /trabalho2/menu");
                 exit;
             }
     }
@@ -96,17 +96,17 @@ $content = ob_get_clean();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Eventos</title>
-    <link rel="stylesheet" href="/trabalho1/public/styles.css">
+    <link rel="stylesheet" href="/trabalho2/public/styles.css">
 </head>
 <body>
 <header>
         <h1>Bem-vindo</h1>
         <nav>
             <ul class="menu-left">
-                <li><a href="/trabalho1/menu">Menu</a></li>
+                <li><a href="/trabalho2/menu">Menu</a></li>
             </ul>
             <ul class="menu-right">
-                <li><a href="/trabalho1/logout">Sair</a></li>
+                <li><a href="/trabalho2/logout">Sair</a></li>
             </ul>
         </nav>
     </header>

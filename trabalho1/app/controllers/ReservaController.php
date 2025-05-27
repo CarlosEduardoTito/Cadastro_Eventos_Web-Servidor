@@ -12,13 +12,13 @@ class ReservaController {
         $evento = Evento::buscarPorId($evento_id);
         if (!$evento || $evento['ingressos_disponiveis'] < $quantidade) {
             $_SESSION['erro'] = "Ingressos insuficientes.";
-            header("Location: /trabalho1/eventos");
+            header("Location: /trabalho2/eventos");
             exit;
         }
         Reserva::criar($usuario_id, $evento_id, $quantidade);
         Evento::atualizarIngressos($evento_id, $evento['ingressos_disponiveis'] - $quantidade);
         $_SESSION['mensagem'] = "Reserva realizada!";
-        header("Location: /trabalho1/minhas_reservas");
+        header("Location: /trabalho2/minhas_reservas");
         exit;
     }
 
@@ -30,13 +30,13 @@ class ReservaController {
         $reserva = Reserva::buscarPorId($reserva_id);
         if (!$reserva) {
             $_SESSION['erro'] = "Reserva não encontrada.";
-            header("Location: /trabalho1/minhas_reservas");
+            header("Location: /trabalho2/minhas_reservas");
             exit;
         }
         Evento::atualizarIngressos($reserva['evento_id'], Evento::buscarPorId($reserva['evento_id'])['ingressos_disponiveis'] + $reserva['quantidade']);
         Reserva::cancelar($reserva_id);
         $_SESSION['mensagem'] = "Reserva cancelada com sucesso!";
-        header("Location: /trabalho1/minhas_reservas");
+        header("Location: /trabalho2/minhas_reservas");
         exit;
     }
 }

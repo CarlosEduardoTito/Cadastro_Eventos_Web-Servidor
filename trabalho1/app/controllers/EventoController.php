@@ -10,13 +10,13 @@ class EventoController {
     public function criar($dados) {
         if (empty($dados['nome']) || empty($dados['ingressos'])) {
             $_SESSION['erro'] = "Nome e ingressos são obrigatórios.";
-            header("Location: /trabalho1/criar_evento");
+            header("Location: /trabalho2/criar_evento");
             exit;
         }
         $dados['usuario_id'] = $_SESSION['usuario']['id'];
         Evento::criar($dados);
         $_SESSION['mensagem'] = "Evento criado com sucesso!";
-        header("Location: /trabalho1/eventos");
+        header("Location: /trabalho2/eventos");
         exit;
     }
 
@@ -35,7 +35,7 @@ class EventoController {
         } else {
             $_SESSION['erro'] = "Não autorizado ou evento não encontrado.";
         }
-        header("Location: /trabalho1/meus_eventos");
+        header("Location: /trabalho2/meus_eventos");
         exit;
     }
 
@@ -47,7 +47,7 @@ class EventoController {
         } else {
             $_SESSION['erro'] = "Você não pode excluir este evento.";
         }
-        header("Location: /trabalho1/meus_eventos");
+        header("Location: /trabalho2/meus_eventos");
         exit;
     }
 }

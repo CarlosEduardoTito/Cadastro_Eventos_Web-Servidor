@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 if (!isset($_SESSION['usuario'])) {
     $_SESSION['erro'] = "Você precisa estar logado para acessar esta página.";
-    header("Location: /trabalho1/public/index.php?url=login");
+    header("Location: /trabalho2/public/index.php?url=login");
     exit;
 }
 
@@ -29,7 +29,7 @@ $reservas = $reservaController->minhasReservas($_SESSION['usuario']['id']);
             <strong>Data:</strong> <?= date('d/m/Y', strtotime($reserva['data'])) ?><br> 
             <strong>Hora:</strong> <?= htmlspecialchars($reserva['hora']) ?><br>
             <strong>Ingressos Reservados:</strong> <?= htmlspecialchars($reserva['ingressos_reservados']) ?><br>
-            <form action="/trabalho1/cancelar_reserva" method="POST" style="margin-top: 10px;">
+            <form action="/trabalho2/cancelar_reserva" method="POST" style="margin-top: 10px;">
                 <input type="hidden" name="reserva_id" value="<?= $reserva['id'] ?>">
                 <button type="submit" style="color: red;">Cancelar Reserva</button>
             </form>
@@ -37,6 +37,6 @@ $reservas = $reservaController->minhasReservas($_SESSION['usuario']['id']);
     <?php endforeach; ?>
 <?php endif; ?>
 
-<form action="/trabalho1/menu" method="GET" style="margin-top: 20px;">
+<form action="/trabalho2/menu" method="GET" style="margin-top: 20px;">
     <button type="submit">Voltar para o Menu</button>
 </form>

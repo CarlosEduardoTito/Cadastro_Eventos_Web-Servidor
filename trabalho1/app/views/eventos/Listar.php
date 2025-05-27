@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['usuario'])) {
-    header("Location: /trabalho1/login");
+    header("Location: /trabalho2/login");
     exit;
 }
 
@@ -20,11 +20,11 @@ $eventos = Evento::listarTodos();
         Hora: <?= date('H:i', strtotime($evento['hora'])) ?><br>
         Local: <?= htmlspecialchars($evento['localizacao']) ?><br>
         Ingressos disponíveis: <?= $evento['ingressos_disponiveis'] ?><br>
-        <a href="/trabalho1/reservar?id=<?= $evento['id'] ?>">Reservar</a>
+        <a href="/trabalho2/reservar?id=<?= $evento['id'] ?>">Reservar</a>
     </div>
 <?php endforeach; ?>
 
 
-<form action="/trabalho1/menu" method="GET" style="margin-top: 20px;">
+<form action="/trabalho2/menu" method="GET" style="margin-top: 20px;">
     <button type="submit">Voltar para o Menu</button>
 </form>
