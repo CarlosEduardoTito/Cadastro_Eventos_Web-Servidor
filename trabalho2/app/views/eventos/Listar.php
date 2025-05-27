@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-require_once __DIR__ . '/../../models/Evento.php';
+use App\Models\Evento;
 $eventos = Evento::listarTodos();
 ?>
 <h2>Eventos</h2>

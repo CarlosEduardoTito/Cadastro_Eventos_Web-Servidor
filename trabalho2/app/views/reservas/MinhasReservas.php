@@ -9,9 +9,7 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-require_once __DIR__ . '/../../controllers/ReservaController.php';
-
-$reservaController = new ReservaController();
+$reservaController = new \App\Controllers\ReservaController();
 $reservas = $reservaController->minhasReservas($_SESSION['usuario']['id']);
 ?>
 

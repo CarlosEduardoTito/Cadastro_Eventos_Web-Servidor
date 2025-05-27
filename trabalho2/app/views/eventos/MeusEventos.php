@@ -1,8 +1,7 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
-require_once __DIR__ . '/../../controllers/EventoController.php';
-$controller = new EventoController();
-$eventos = $controller->MeusEventos();
+$controller = new \App\Controllers\EventoController();
+$eventos = $controller->meusEventos();
 ?>
 <h2>Meus Eventos</h2>
 <?php if (!empty($_SESSION['mensagem'])): ?>

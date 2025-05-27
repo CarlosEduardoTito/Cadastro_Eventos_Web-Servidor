@@ -1,11 +1,13 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Models\Reserva;
+use App\Models\Evento;
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-require_once __DIR__ . '/../models/Reserva.php';
-require_once __DIR__ . '/../models/Evento.php';
 
 class ReservaController {
     public function reservar($usuario_id, $evento_id, $quantidade) {

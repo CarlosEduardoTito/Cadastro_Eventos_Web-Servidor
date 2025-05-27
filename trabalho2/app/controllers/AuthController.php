@@ -1,10 +1,12 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Models\Usuario;
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-require_once __DIR__ . '/../models/Usuario.php';
 
 class AuthController {
     public function login($email, $senha) {

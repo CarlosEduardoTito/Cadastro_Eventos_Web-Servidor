@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
     header("Location: /trabalho2/login");
     exit;
 }
-require_once __DIR__ . '/../../models/Evento.php';
+use App\Models\Evento;
 $evento_id = $_GET['id'] ?? null;
 $evento = $evento_id ? Evento::buscarPorId($evento_id) : null;
 if (!$evento) {

@@ -1,14 +1,11 @@
 <?php
 session_start();
 
-require_once '../app/controllers/AuthController.php';
-require_once '../app/controllers/EventoController.php';
-require_once '../app/controllers/ReservaController.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$auth = new AuthController();
-$eventoController = new EventoController();
-$reservaController = new ReservaController();
+$auth = new \App\Controllers\AuthController();
+$eventoController = new \App\Controllers\EventoController();
+$reservaController = new \App\Controllers\ReservaController();
 
 $url = $_GET['url'] ?? '';
 $segments = explode('/', trim($url, '/'));
@@ -48,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     switch ($segments[0]) {
         case 'login':
-            include '../app/views/auth/Login.php';
+            include '../app/views/auth/login.php';
             break;
         case 'cadastrar':
             include '../app/views/auth/Cadastrar.php';

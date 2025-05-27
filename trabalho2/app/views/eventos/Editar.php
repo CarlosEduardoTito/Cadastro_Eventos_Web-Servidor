@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) session_start();
-require_once __DIR__ . '/../../models/Evento.php';
+use App\Models\Evento;
 $id = $_GET['id'] ?? null;
 $evento = $id ? Evento::buscarPorId($id) : null;
 if (!$evento || $evento['usuario_id'] != $_SESSION['usuario']['id']) {

@@ -1,10 +1,12 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Models\Evento;
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-require_once __DIR__ . '/../models/Evento.php';
 
 class EventoController {
     public function criar($dados) {
