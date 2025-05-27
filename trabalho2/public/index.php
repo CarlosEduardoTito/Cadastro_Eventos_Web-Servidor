@@ -4,6 +4,7 @@ session_start();
 require_once '../app/controllers/AuthController.php';
 require_once '../app/controllers/EventoController.php';
 require_once '../app/controllers/ReservaController.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $auth = new AuthController();
 $eventoController = new EventoController();
